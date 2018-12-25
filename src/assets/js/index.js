@@ -7,6 +7,6 @@ window.onload = function() {
 };
 
 const test = () => {
-  let hello = 'Hello babel!';
+  let hello = 'Hello babel!!!!!';
   console.log(hello);
 };

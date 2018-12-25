@@ -1,6 +1,8 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const NODE_ENV = process.env.NODE_ENV;
 
 module.exports = {
@@ -11,8 +13,8 @@ module.exports = {
   },
   entry: './src/assets/js/index.js',
   output: {
-    filename: 'js/bundle.js',
-    path: path.resolve(__dirname, 'dest/assets')
+    filename: 'assets/js/bundle.js',
+    path: path.resolve(__dirname, 'dest')
   },
   module: {
     rules: [
@@ -34,7 +36,10 @@ module.exports = {
           },
           {
             loader: 'css-loader',
-            options: { url: false }
+            options: {
+              url: false,
+              sourceMap: process.env.NODE_ENV === 'development'
+            }
           },
           {
             loader: 'postcss-loader',
@@ -54,22 +59,16 @@ module.exports = {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: 'style/[name].css' }),
+    new CleanWebpackPlugin(['dest']),
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    }),
+    new MiniCssExtractPlugin({ filename: 'assets/style/[name].css' }),
     new CopyWebpackPlugin(
       [
         {
           from: '',
-          to: '../',
-          ignore: ['!*.html']
-        }
-      ],
-      { context: 'src' }
-    ),
-    new CopyWebpackPlugin(
-      [
-        {
-          from: '',
-          to: 'images/'
+          to: 'assets/images/'
         }
       ],
       { context: 'src/assets/images' }
