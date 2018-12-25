@@ -68,6 +68,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
+    new HtmlWebpackPlugin({
+      template: './src/about.html',
+      filename: 'about.html'
+    }),
     new MiniCssExtractPlugin({ filename: 'assets/style/[name].css' }),
     new CopyWebpackPlugin(
       [
