@@ -16,6 +16,7 @@ module.exports = {
     filename: 'assets/js/bundle.js',
     path: path.resolve(__dirname, 'dest')
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -44,6 +45,7 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
+              sourceMap: process.env.NODE_ENV === 'development',
               plugins: [
                 require('autoprefixer')({
                   browsers: ['last 2 versions', 'Android >= 4']
@@ -52,7 +54,10 @@ module.exports = {
             }
           },
           {
-            loader: 'sass-loader'
+            loader: 'sass-loader',
+            options: {
+              sourceMap: process.env.NODE_ENV === 'development'
+            }
           }
         ]
       }
