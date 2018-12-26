@@ -1,0 +1,14 @@
+.button {
+  display: inline-block;
+  min-width: 240px;
+  background-color: map-get($theme-colors, primary);
+  color: white;
+  text-align: center;
+  transition: $transition-duration-short;
+  @include button-size(16px, 24px, 1rem, 1rem, $border-radius);
+  &:hover {
+    text-decoration: none;
+    color: white;
+    opacity: $hover-opacity;
+  }
+}
