@@ -1,7 +1,2 @@
-.button {
-  display: inline-block;
-  min-width: 240px;
-  background-color: red;
-  color: white;
-  padding: 20px;
-}
+@import './components/button';
+@import './components/header';

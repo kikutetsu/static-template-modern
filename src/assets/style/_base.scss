@@ -1,5 +1,13 @@
 @import "./vender/bootstrap-reboot.css";
 
 body {
-  background-color: #eee;
+  background-color: $bg-color;
+}
+
+ul ,ol {
+  margin: 0;
+  padding: 0;
+  li {
+    list-style: none;
+  }
 }
