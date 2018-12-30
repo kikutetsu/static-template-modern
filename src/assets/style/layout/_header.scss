@@ -1,5 +1,7 @@
-.inner {
-  max-width: $ll-boundary;
-  margin: 0 auto;
-  padding: 0 20px;
+#header {
+  background-color: #eee;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 0 8px;
 }

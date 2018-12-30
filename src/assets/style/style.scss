@@ -1,7 +1,11 @@
+@charset "utf-8";
+
 // ==========================================================================
 // Foundation
 // ==========================================================================
 
+@import "foundation/_variables";
+@import "foundation/_functions";
 @import "foundation/bootstrap-reboot";
 @import "foundation/_base";
 
@@ -9,8 +13,9 @@
 // Layout
 // ==========================================================================
 
-@import "layout/_footer";
 @import "layout/_header";
+@import "layout/_footer";
+@import "layout/_content";
 @import "layout/_main";
 @import "layout/_sidebar";
 
@@ -29,6 +34,7 @@
 // Project
 // -----------------------------------------------------------------
 
+@import "object/project/_header";
 @import "object/project/_articles";
 
 // -----------------------------------------------------------------
